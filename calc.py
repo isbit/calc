@@ -11,4 +11,4 @@ sum = sub(10,5)
 print(sum)
 
 #Todo add multiplication, division 
-# Ser du dette?
+# Ser du dette?vfghjkkoo
