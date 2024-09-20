@@ -1,4 +1,4 @@
-
+#Todo add triple, quadruple 
 
 def add(x,y):
     return x+y
@@ -23,5 +23,9 @@ def dele(c, d):
 
 sumdele = dele(6, 2)
 print(sumdele)
-# print(multi(6, 2))
-#Todo add multiplication, division 
+
+def double(x):
+    return x*2
+
+sumdouble = double(6)
+print(sumdouble)
