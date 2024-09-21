@@ -29,3 +29,12 @@ def double(x):
 
 sumdouble = double(6)
 print(sumdouble)
+
+def findBiggest(x,y):
+    if x > y:
+        return x
+    else: 
+        return y
+
+biggest = findBiggest(32,632)
+print(biggest)
