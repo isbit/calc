@@ -1,4 +1,4 @@
-#Todo add triple, quadruple 
+#Todo quadruple 
 
 def add(x,y):
     return x+y
@@ -29,6 +29,12 @@ def double(x):
 
 sumdouble = double(6)
 print(sumdouble)
+
+def triple(x):
+    return x*3
+
+sumtriple = triple(6)
+print(sumtriple)
 
 def findBiggest(x,y):
     if x > y:
