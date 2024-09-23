@@ -44,8 +44,3 @@ def findBiggest(x,y):
 
 biggest = findBiggest(32,632)
 print(biggest)
-
-def badFunction(x):
-    return 100
-bad = badFunction(5)
-print(bad)
