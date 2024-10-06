@@ -43,6 +43,7 @@ def findBiggest(x,y):
         return x
     else: 
         return y
-
-biggest = findBiggest(32,632)
+nummer_1 = int(input("Set inn forste tall: "))
+nummer_2 = int(input("Set inn andre tall: "))
+biggest = findBiggest(nummer_1, nummer_2)
 print(biggest)
