@@ -1,5 +1,7 @@
-#Todo quadruple 
+#Todo quadruple
 
+# avslutt = "Slutt"
+# while avslutt !="Slutt":
 def add(x,y):
     return x+y
 
@@ -35,6 +37,13 @@ def triple(x):
 
 sumtriple = triple(6)
 print(sumtriple)
+
+
+def nterot(x, n):
+    return x**n
+nterot_resultat = nterot(int(input("Sett inn tallet du vil exponere: ")), 
+int(input("Sett inn eksponenten: ")))
+print(nterot_resultat)
 
 def findBiggest(x,y):
     if x > y:
