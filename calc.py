@@ -44,4 +44,4 @@ def findBiggest(x,y):
 nummer_1 = int(input("Set inn forste tall: "))
 nummer_2 = int(input("Set inn andre tall: "))
 biggest = findBiggest(nummer_1, nummer_2)
-print(biggest)
+print(f"{biggest} er størst")
