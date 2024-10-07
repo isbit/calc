@@ -1,4 +1,4 @@
-#Todo quadruple
+#Todo quadruple. Handtere at brukere gir bokstaver i stedet for tall som input. Det gir feil nå. 
 
 # avslutt = "Slutt"
 # while avslutt !="Slutt":
@@ -54,3 +54,17 @@ nummer_1 = int(input("Set inn forste tall: "))
 nummer_2 = int(input("Set inn andre tall: "))
 biggest = findBiggest(nummer_1, nummer_2)
 print(f"{biggest} er størst")
+
+
+# This is the menu. 
+avslutt = False
+while(not avslutt):
+    print("---=== Meny ===---")
+    print("0: Avslutt")
+    menuchoice = int(input("Valg:"))
+    match menuchoice:
+        case 0:
+            avslutt = True
+            print("Avslutter")
+        case _:
+            print("Feil valg")
