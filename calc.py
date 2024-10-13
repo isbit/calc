@@ -70,7 +70,7 @@ while(not avslutt):
             print("Feil valg")
 
 """
-Denne delen er skjæringssetningen
+Denne delen er skjæringssetningen og Newton-Raphson tilnærmingsmetode 
 den finner ut om det krysser en linje y = 0 i dette tilfellet og må
 omskrives til en generell version
 """
@@ -94,7 +94,7 @@ def tilnarming(x):
         c = c-deltax(c)
     return c
 
-# Prøver de 3 intervallene
+# Prøver de 3 intervallene skjæringssetningen
 # [-5,-1]
 print(f"Intervall: [-5,-1]  [{f(-5)}, {f(-1)}]")
 print("Skærer linjen y = 0")
@@ -104,6 +104,7 @@ print("Skærer linjen y = 0")
 # [1,2]
 print(f"Intervall: [1,2]  [{f(1)}, {f(2)}]")
 print("Skærer linjen y = 0\nAlle ytterpunktene av intervallene er på hver side av linjen y = 0 og skjærer derfor linjen.")
+# Utregnes med newton-raphson
 print("Til nærmingen for [-5,-1]", round(tilnarming(-4),6))
 print("Til nærmingen for [-1,1]", round(tilnarming(0),6))
 print("Til nærmingen for [1,2]", round(tilnarming(1.5),6))
