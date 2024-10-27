@@ -5,9 +5,6 @@
 def add(x,y):
     return x+y
 
-sum = add(10,5)
-print(sum)
-
 def sub(x,y):
     return x-y
 
@@ -61,11 +58,16 @@ avslutt = False
 while(not avslutt):
     print("---=== Meny ===---")
     print("0: Avslutt")
+    print("1: Addere")
     menuchoice = int(input("Valg:"))
     match menuchoice:
         case 0:
             avslutt = True
             print("Avslutter")
+        case 1:
+            forste_tall = int(input("Sett in det første tallet du vi addere: "))
+            andre_tall = int(input("Sett inn tall to: "))
+            add(forste_tall, andre_tall)
         case _:
             print("Feil valg")
 
