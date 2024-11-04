@@ -1,7 +1,10 @@
 #Todo quadruple. Handtere at brukere gir bokstaver i stedet for tall som input. Det gir feil nå. 
 
-# avslutt = "Slutt"
-# while avslutt !="Slutt":
+class Kalkulator:
+
+    def __init__(self) -> None:
+        pass
+
 def add(x,y):
     return x+y
 
