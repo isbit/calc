@@ -117,3 +117,17 @@ print("Til nærmingen for [1,2]", round(tilnarming(1.5),6))
 """
 Slutt skjæringsetningen
 """
+'''
+Fibonacci sekvensen
+'''
+
+fibonacci = []
+fibonacci.append(0)
+fibonacci.append(1)
+antall_fibonacci_tall = int(input("Sett inn antall du ønsker: "))
+
+for i in range(1 ,antall_fibonacci_tall):
+    tall = fibonacci[i] + fibonacci[i-1]
+    fibonacci.append(tall)
+
+print(fibonacci)
