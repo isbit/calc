@@ -5,39 +5,33 @@ class Kalkulator:
     def __init__(self) -> None:
         pass
 
+    def fibonacci(self, n):
+        resultat = []
+        if n < 1:
+            print("DUST\n"*100)
+        elif n == 1:
+            resultat.append(0)
+        elif n > 10000:
+            print("Maks nummer er 9999")
+        else:
+            resultat.append(0)
+            resultat.append(1)
+            for i in range(1 ,n):
+                tall = resultat[i] + resultat[i-1]
+                resultat.append(tall)
+            return resultat
+
 def add(x,y):
     return x+y
 
 def sub(x,y):
     return x-y
 
-sum = sub(10,5)
-print(sum)
-
 def multi(a, b):
     return a*b
 
-summulti = multi(6, 5)
-print(summulti)
-
 def dele(c, d):
     return c/d
-
-sumdele = dele(6, 2)
-print(sumdele)
-
-def double(x):
-    return x*2
-
-sumdouble = double(6)
-print(sumdouble)
-
-def triple(x):
-    return x*3
-
-sumtriple = triple(6)
-print(sumtriple)
-
 
 def nterot(x, n):
     return x**n
@@ -121,13 +115,22 @@ Slutt skjæringsetningen
 Fibonacci sekvensen
 '''
 
-fibonacci = []
-fibonacci.append(0)
-fibonacci.append(1)
-antall_fibonacci_tall = int(input("Sett inn antall du ønsker: "))
+def fibonacci(n):
+    resultat = []
 
-for i in range(1 ,antall_fibonacci_tall):
-    tall = fibonacci[i] + fibonacci[i-1]
-    fibonacci.append(tall)
+    while n < 1:
+        print("DUST\n"*100)
+        break
+    if n == 1:
+        resultat.append(0)
+    else:
+        resultat.append(0)
+        resultat.append(1)
+        for i in range(1 ,n):
+            tall = resultat[i] + resultat[i-1]
+            resultat.append(tall)
+        return resultat
 
-print(fibonacci)
+
+antall = int(input("Sett inn antall du ønsker: "))
+print(fibonacci(antall))
