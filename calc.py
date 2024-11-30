@@ -21,29 +21,29 @@ class Kalkulator:
                 resultat.append(tall)
             return resultat
 
-def add(x,y):
-    return x+y
+    def add(self, x,y):
+        return x+y
 
-def sub(x,y):
-    return x-y
+    def sub(self, x,y):
+        return x-y
 
-def multi(a, b):
-    return a*b
+    def multi(self, a, b):
+        return a*b
 
-def dele(c, d):
-    return c/d
+    def dele(self, c, d):
+        return c/d
 
-def nterot(x, n):
-    return x**n
-nterot_resultat = nterot(int(input("Sett inn tallet du vil exponere: ")), 
-int(input("Sett inn eksponenten: ")))
-print(nterot_resultat)
+    def nterot(self, x, n):
+        return x**n
+    
+    def findBiggest(self, x,y):
+        if x > y:
+            return x
+        else: 
+            return y                            
 
-def findBiggest(x,y):
-    if x > y:
-        return x
-    else: 
-        return y
+
+
 nummer_1 = int(input("Set inn forste tall: "))
 nummer_2 = int(input("Set inn andre tall: "))
 biggest = findBiggest(nummer_1, nummer_2)
@@ -111,26 +111,3 @@ print("Til nærmingen for [1,2]", round(tilnarming(1.5),6))
 """
 Slutt skjæringsetningen
 """
-'''
-Fibonacci sekvensen
-'''
-
-def fibonacci(n):
-    resultat = []
-
-    while n < 1:
-        print("DUST\n"*100)
-        break
-    if n == 1:
-        resultat.append(0)
-    else:
-        resultat.append(0)
-        resultat.append(1)
-        for i in range(1 ,n):
-            tall = resultat[i] + resultat[i-1]
-            resultat.append(tall)
-        return resultat
-
-
-antall = int(input("Sett inn antall du ønsker: "))
-print(fibonacci(antall))
