@@ -1,7 +1,8 @@
 '''
 Too do:
 
-Handtere at brukere gir bokstaver i stedet for tall som input. Det gir feil nå. 
+-- Handtere at brukere gir bokstaver i stedet for tall som input. Det gir feil nå. 
+-- 2. gradslikning ABC
 '''
 
 
