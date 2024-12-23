@@ -2,7 +2,8 @@
 Too do:
 
 -- Handtere at brukere gir bokstaver i stedet for tall som input. Det gir feil nå. 
--- 2. gradslikning ABC
+-- 2. gradslikning ABC.
+-- En funksjon som finer h**2 = k*2 + k**2 ved hjelp av sin(theta), cos(theta) og tan(theta).
 '''
 
 
