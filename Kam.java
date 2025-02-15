@@ -16,3 +16,6 @@ class Vu {
         return legning;
     }
 }
+double x = 2.0;
+double y = 2.0;
+System.out.println((y==1.0)) ? x:1.0 / x;
