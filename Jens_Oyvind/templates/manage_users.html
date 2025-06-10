@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Manage users{% endblock %}
+
+{% block content %}
+<h1>Users</h1>
+<input type="text" id="searchInput" placeholder="Search users by name or id..." onkeyup="filterUsers()">
+<div id="manage-users-container">
+
+<table id="userTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>ID</th>
+      <th>Delete user</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in user_list %}
+      <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.id_user }}</td>
+        <td>
+          {% if user.name != "admin" %}
+          <button 
+              onclick="confirmDelete(this)" 
+              data-username="{{ user.name }}" 
+              data-is-admin="{{ 'true' if isadmin else 'false' }}">
+              Delete user
+          </button>
+          {% endif %}
+        </td>
+        <!-- <button onclick="confirmDelete('{{ user.name }}')">Delete User</button></td> -->
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

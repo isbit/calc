@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Statistics{% endblock %}
+
+{% block content %}
+
+<h2>Questionnaire Statistics</h2>
+<a href="{{ url_for('admin')}}">Back to admin</a>
+<p>Total users: {{ total_users }}</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Questionnaire Name</th>
+            <th>Users Answered</th>
+            <th>Percentage Answered</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for questionnaire in questionnaire_data %}
+        <tr>
+            <td>{{ questionnaire.id_questionnaire }}</td>
+            <td>{{ questionnaire.name_questionnaire }}</td>
+            <td>{{ questionnaire.users_answered }}</td>
+            <td>{{ questionnaire.percentage_answered }}%</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+{% endblock %}

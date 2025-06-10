@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    {% if darkmode|int == 1 %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='dark_mode.css') }}"/>
+    {% endif %}
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    {% block head %}{% endblock %}
+</head> 
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="{{ url_for('index') }}">Home</a>
+            </div>
+            <button class="hamburger">&#9776;</button>
+            <div class="nav-right dropdown-menu">
+                <div class="login">
+                    {% if logged_in_user %}
+                        Logged in as {{ logged_in_user }}
+                        {% if profile_pic %}
+                            <a href="{{ url_for('account')}}" aria-hidden="true"><img src="/{{ profile_pic }}" alt="profile pic" width="20"></a>
+                        {% else %}
+                            <a href="{{ url_for('account')}}" aria-hidden="true"><img src="{{ url_for('static', filename='uploads/default_user_img.jpg') }}" alt="default profile pic" width="20"></a>
+                        {% endif %}
+                        {% if isadmin %}
+                            <a href="{{ url_for('admin') }}">Admin Page</a> 
+                        {% else %}
+                            <a href="{{ url_for('account')}}">My account</a> 
+                        {% endif %}
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% else %}
+                        Not logged in 
+                        <a href="{{ url_for('login') }}">Login</a> 
+                        <a href="{{ url_for('register') }}">Register user</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div id="flash-box">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <main >
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>

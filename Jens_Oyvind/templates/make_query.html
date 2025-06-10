@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Create new questionnaire{% endblock %}
+
+{% block content %}
+<h2>New questionnaire</h2>
+  
+  <!-- Navnet på undersøkelsen -->
+  <!-- Henter antall spørsmål i undersøkelsen -->
+  <form method="POST" id="query-form">
+    <label for="name_questionnaire">Name of questionnaire</label>
+    <input type="text" id="name_questionnaire" name="name_questionnaire" required>
+    <label for="num_questions">Number of questions</label>
+    <input type="number" id="num_questions" name="num_questions" min="1" max="100" required>
+    <input type="submit" value="Submit" id="query-button">
+  </form>
+
+{% endblock %}

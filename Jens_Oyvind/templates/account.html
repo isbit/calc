@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}My account{% endblock %}
+
+
+{% block content %}
+<div id="account-container">
+<h1>Account of {{logged_in_user}} </h1>
+<p>You have {{ tokens }} tokens.</p>
+{% if profile_pic %}
+  <img src="/{{ profile_pic }}" alt="Profile Picture" width="150">
+
+{% else %}
+    <img src="{{ url_for('static', filename='uploads/default_user_img.jpg') }}" alt="" width="150">
+{% endif %}
+<div id="image-upload-container">
+  <form method="POST" action="{{ url_for('upload_profile_pic') }}" enctype=multipart/form-data>
+    <label for="image">Upload an image</label><br>
+    <input type=file id="image" name=image><br>
+    <input type=submit value=Upload>
+  </form>
+</div>
+
+<br><br>
+<p>
+    <button id="toggle_button" data-preferences='{{ darkmode|tojson }}' onclick="darkModeToggle()">Toggle dark mode</button>
+</p>
+<p>
+    <button id="delete-user-button"
+        onclick="confirmDelete(this)" 
+        data-username="{{ logged_in_user }}" 
+        data-is-admin="{{ 'true' if isadmin else 'false' }}">
+        Delete user
+    </button>
+</p>
+</div>
+
+
+{% endblock %}

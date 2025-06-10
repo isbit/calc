@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Register user{% endblock %}
+
+{% block content %}
+
+<h2>Register new user</h2>
+  <form method="POST" class="register_user_form">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" onkeyup="lookUpUsername(this.value);" required>
+    <span id="usernameFeedback"></span>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" onkeyup="passwordRequirements(this.value);" onkeyup="comparePasswords(this.value, document.getElementById('password').value)" required>
+    <span id="passwordFeedback"></span>
+  </div>
+  <div>
+    <label for="password_retype">Retype password:</label>
+      <input type="password" id="password_retype" name="password_retype" onkeyup="comparePasswords(document.getElementById('password').value, this.value);" required>
+      <span id="repasswordFeedback"></span>
+  </div>
+  {% if isadmin %}
+  <div>
+    <label for="admin">Admin:</label>
+    <input type="checkbox" id="admin" name="admin" onclick="adminCheckboxChanged(this)">
+  </div>
+  {% endif %} 
+  <input id="register_user_button" type="submit" value="Register new user">
+  </form>
+
+{% endblock %}

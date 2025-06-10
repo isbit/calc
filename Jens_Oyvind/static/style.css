@@ -1,0 +1,532 @@
+* {
+    font-family: Verdana, Arial, sans-serif;
+}
+/* Header */
+header {
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    background-color: #aab6d6;
+    border-bottom: 1px solid #2c2e35;
+    border-top: 1px solid #2c2e35;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    height: 30px; /* samme som navbar */
+}
+
+header a {
+    color: #004d40;
+    padding: 0px 10px;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation bar*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px; /* samme som header */
+}
+
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 43px;
+        right: 1px;
+        min-width: 80px; 
+        max-width: 80vw; /* max størrelse 80% av viewport width*/
+        color: #302f2f;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1000;
+    }
+    .hamburger {
+        display: block;
+    }
+
+    .dropdown-menu.active {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 5px 0px;
+        text-align: left;
+    }
+
+    .dropdown-menu.active {
+        display: flex;
+    }
+}
+
+body {
+    margin: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+main {
+    margin: 10px;
+    z-index: 0;
+}
+
+
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/static/question_mark_bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+
+/* Flash */
+.error {
+    color:white;
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: indianred;
+    padding: 2px;
+    text-align: center;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+}
+
+.success {
+    color:white;
+    border: 1px solid green;
+    border-radius: 5px;
+    background-color: lightgreen;
+    padding: 2px;
+    text-align: center;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+}
+
+/* Table */
+td, th {
+    border: 1px solid black;
+    padding: 3px;    
+}
+
+table {
+    border-collapse: collapse;
+}
+
+/* Forms  */
+.register_user_form div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.register_user_form label {
+    width: 150px; 
+}
+
+/* Questionnaires/Index */
+#index-content {
+    display: flex;
+}
+#index-img-container {
+    flex:1;
+}
+
+@media (max-width: 1000px) {
+    #index-img-container {
+    display: none;
+    }
+}
+
+#query_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.completed-row {
+    background-color: rgb(185, 245, 185);
+}
+#questionnaires-container {
+    display: flex;
+    flex: 1;
+    justify-content: left;
+    flex-direction: column;
+    padding: 2px;
+}
+#questionnaires {
+    min-width: fit-content;
+    max-width: 700px;
+}
+#questionnaires table {
+    /* width: fit-content;
+    min-width: 410px;
+    max-width: 1200px; */
+    
+    width: 100%;
+}
+#questionnaires td {
+    /* border-left: none; */
+    /* border-right: none; */
+    padding-bottom: 2px;
+}
+.single-column-questionnaires {
+    border:none;
+}
+#questionnaires td:last-child {
+    text-align: right;
+    border-left: none;
+}
+
+#questionnaires td:first-child {
+    text-align: left;
+    border-right: none;
+}
+
+#questionnaires th {
+    border: none;
+    padding-bottom: 10px;
+}
+
+#questionnaires th:first-child {
+    text-align: left;
+}
+
+#questionnaires th:nth-child(2) {
+    text-align: right;
+}
+
+.questionnaire-form {
+    max-width: 500px;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.answer-button {
+    max-width: fit-content;
+    min-width: 156px;
+    
+}
+
+/* Answers */
+#answers-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+}
+#answers-container h1 {
+    padding-left: 30px;
+}
+
+#answers_form {
+    min-width: fit-content;
+    max-width: 700px;
+}
+
+
+ol.answers-list > li:nth-child(odd) {
+    background-color: #e8e7e7;
+}
+ol.answers-list > li:nth-child(even) {
+    background-color: #ffffff;
+}
+
+ol.answers-list > li {
+    display: flex;
+    padding: 0.5em;
+    border-radius: 3px;
+    margin-bottom: 0.5em;
+    min-width: 60%;
+    max-width: 600px;
+}
+
+.submit-button-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5em;
+}
+
+.question-label {
+    flex:1;
+    min-width: 40%;
+    text-align: left;
+    line-height: 1;
+}
+
+/* Create questionnaire */
+#query-form {
+    display: flex;
+    flex-direction: column;
+}
+#query-form > * {
+    padding: 2px;
+}
+#num_questions {
+    max-width: 50px;
+}
+#query-button {
+    max-width: 200px;
+}
+#add-query-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+#query_list li {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: right;
+}
+
+
+#add-query-container h3 {
+    text-align: right;
+}
+
+#add-query-form label {
+    padding: 10px;
+}
+
+
+#add-query-container form input.input_ramme {
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box; /* sørger for at padding/border ikke overflow */
+}
+
+#addQuestionButtons {
+    display: flex;
+    gap: 4px;
+    justify-content: right;
+}
+
+#login label {
+    display: block;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+    min-width: 80px;
+    max-width: 300px;
+    padding: 0.1em;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin-bottom: 0.3em;
+}
+/* Admin */
+#admin-container a{
+    color: black;
+}
+#manage-users-container {
+    width: 50%;
+}
+#manage-users-container td:nth-child(3),
+#manage-users-container th:nth-child(3) {
+    width: 105px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+#manage-users-container td:nth-child(2),
+#manage-users-container th:nth-child(2) {
+    width: 50px;
+    white-space: nowrap;
+    text-align: center;
+}
+#manage-users-container td:first-child,
+#manage-users-container th:first-child {
+    width: 200px;
+    white-space: nowrap;
+}
+
+#manage-users-container table {
+    width: 100%;
+    table-layout: fixed;
+}
+#searchInput {
+    width: 300px;
+}
+/* Account */
+#account-container {
+    padding-left: 1%;
+}
+#delete-user-button {
+    background-color: #d9534f;
+    color: rgb(7, 7, 7);
+    border: 1px solid #d43f3a;
+    border-radius: 4px;
+}
+
+#delete-user-button:hover {
+    background-color: #c9302c; /* darker red on hover */
+}
+
+
+/* GAME START */
+
+
+
+
+/* 
+grid-area: 1 / -1 stacker alle liste elementene på hverandre.
+Transform origin gjør at vi  roterer rundt høyre side av li boksen/elementet
+width er lengden på hvert li element og radius på sirkelen
+*/
+.resultSection {
+    color: black;
+    align-content: center;
+    display: grid;
+    font-size: 6cqi;
+    grid-area: 1 / -1;
+    list-style: none;
+    padding-left: 1ch;
+    transform-origin: center right;
+    width: 47.5cqi;
+    text-align: left;
+
+    /* Her gis hvert liste et egen gjenkjenning */
+
+    &:nth-of-type(1) { --_idx: 1;}
+    &:nth-of-type(2) { --_idx: 2;}
+    &:nth-of-type(3) { --_idx: 3;}
+    &:nth-of-type(4) { --_idx: 4;}
+
+    /* 
+    - Plasserer hvert element i en sirkel med fordeling 360/antall elementer
+    - calc() gir mulighet til grunnleggende arimetrikk*/
+    rotate: calc(360deg / var(--_items) * calc(var(--_idx) - 1));
+
+    /*  hsl: hue, saturation, lightness
+        denne gir hver liste element boks en farge hver */
+    background: hsl(calc(360deg / var(--_items) * calc(var(--_idx))), 100%, 50%);
+
+    /* 
+    - Lager høyden på hvert element
+    - Clip path, parameterene inne i polygon() funksjon
+    (0% 0%)       (100% 50%)
+    *-----------*
+    |          /
+    |        /
+    |      /
+    |    /
+    |  /
+    |/
+    *
+    (0% 100%)
+    */
+    height: calc((2 * 3.1416 * 50cqi) / var(--_items));
+    /* clip-path: polygon(0% 0%, 100% 50%, 0% 100%); */
+    clip-path: polygon(0% 115%, 0% -15%, 100% 50%);
+}
+
+#wheel {
+    --_items: 4;
+    all: unset;
+    aspect-ratio: 1 / 1;
+    background: crimson;
+    container-type: inline-size;
+    direction: ltr;
+    display: grid;
+    place-content: center start;
+    transition: transform 4s ease-out;
+    clip-path: inset(0 0 0 0 round 50%);
+}
+
+#spinButton {
+    position: relative;
+    left: 40%;
+    padding: 0px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+#pointer {
+    top: 0px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0px;
+    height: 0px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 25px solid;
+}
+
+#gamePage {
+    display: flex;
+
+    justify-content: center;
+}
+
+/* #gamePic {
+
+} */
+
+#gameFull{
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    min-width: 100px;
+    max-width: 500px;
+}
+
+#gameDescription {
+    order: 1;
+    min-width: 100px;
+    max-width: 300px;
+    text-align: center;
+}
+
+
+/* 
+- all: unset fjerner all inheritance osv og gir objectet en ren start.
+- Denne lager en ramme rundt hele sirkelen
+*/
+#gameBox {
+    padding-left: 25px;
+    padding-right: 20px;
+    order: 2;
+    background-color: rebeccapurple;
+    border: rebeccapurple 15px solid;
+    clip-path: inset(0 0 0 0 round 43%);
+    min-width: 100px;
+    max-width: 300px;
+}
+
+
+#gameResult {
+    order: 3;
+    min-width: 100px;
+    max-width: 300px;
+}
+
+.spinAgain {
+    color: black;
+    border: 1px solid yellow;
+    border-radius: 5px;
+    background-color:yellow;
+    padding: 2px;
+    text-align: center;
+}
+
+/* GAME END */

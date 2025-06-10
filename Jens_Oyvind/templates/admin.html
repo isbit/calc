@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Administrator{% endblock %}
+
+{% block content %}
+
+<div id="admin-container">
+  <h1>Admin page</h1>
+
+<p><a href="{{ url_for('register') }}">Register new user/admin</a></p>
+<p><a href="{{ url_for('manage_users')}}">Manage users</a></p>
+<p><a href="{{ url_for('make_query') }}">Create questionnaire</a></p>
+<p><a href="{{ url_for('statistics')}}">View statistics</a></p>
+<p><a href="{{ url_for('account')}}">Admin account settings</a></p>
+
+
+</div>
+{% endblock %}

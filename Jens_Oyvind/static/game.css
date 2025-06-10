@@ -1,0 +1,100 @@
+/* 
+- Funksjon where brukes til å matche elementer uten å øke spesifisitet.
+- all: unset fjerner all inheritance osv og gir objectet en ren start.
+- Denne lager en ramme rundt hele sirkelen
+*/
+
+#gameBox {
+      align-items: center;
+      justify-content: center;
+      /* height: 100vh; */
+      width: 30%;
+      height: 30%;
+      gap: 1rem;
+    }
+
+
+/* 
+grid-area: 1 / -1 stacker alle liste elementene på hverandre.
+Transform origin gjør at vi  roterer rundt høyre side av li boksen/elementet
+width er lengden på hvert li element og radius på sirkelen
+*/
+.resultSection {
+    align-content: center;
+    background: deepskyblue;
+    display: grid;
+    font-size: 5cqi;
+    grid-area: 1 / -1;
+    list-style: none;
+    padding-left: 1ch;
+    transform-origin: center right;
+    width: 47.5cqi;
+    text-align: left;
+
+    /* Her gis hvert liste et egen gjenkjenning */
+
+    &:nth-of-type(1) { --_idx: 1;}
+    &:nth-of-type(2) { --_idx: 2;}
+    &:nth-of-type(3) { --_idx: 3;}
+    &:nth-of-type(4) { --_idx: 4;}
+
+    /* 
+    - Plasserer hvert element i en sirkel med fordeling 360/antall elementer
+    - calc() gir mulighet til grunnleggende arimetrikk*/
+    rotate: calc(360deg / var(--_items) * calc(var(--_idx) - 1));
+
+    /*  hsl: hue, saturation, lightness
+        denne gir hver liste element boks en farge hver */
+    background: hsl(calc(360deg / var(--_items) * calc(var(--_idx))), 100%, 50%);
+
+    /* 
+    - Lager høyden på hvert element
+    - Clip path, parameterene inne i polygon() funksjon
+    (0% 0%)       (100% 50%)
+    *-----------*
+    |          /
+    |        /
+    |      /
+    |    /
+    |  /
+    |/
+    *
+    (0% 100%)
+    */
+    height: calc((2 * pi * 50cqi) / var(--_items));
+    /* clip-path: polygon(0% 0%, 100% 50%, 0% 100%); */
+    clip-path: polygon(0% 114%, 0% -14%, 100% 50%);
+}
+
+#wheel {
+    --_items: 4;
+    all: unset;
+    aspect-ratio: 1 / 1;
+    background: crimson;
+    container-type: inline-size;
+    direction: ltr;
+    display: grid;
+    place-content: center start;
+    transition: transform 4s ease-out;
+    clip-path: inset(0 0 0 0 round 50%);
+}
+
+#spinButton {
+    position: relative;
+    left: 42%;
+    padding: 1px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+#pointer {
+    top: 0px;
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0px;
+    height: 0px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 25px solid;
+}

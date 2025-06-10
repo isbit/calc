@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Questionnaire: {{ name_questionnaire }}{% endblock %}
+
+{% block content %}
+<div id="answers-container">
+<h1>{{ name_questionnaire }}</h1>
+
+<form method="POST" id="answers_form">
+  {% if already_answered %}
+    <input type="hidden" name="_method" value="PUT">
+  {% endif %}
+
+<ol class="answers-list">
+  {% if questions %}
+    {% for question in questions %}
+      <li>
+        <label for="answer{{ loop.index }}" class="question-label">{{ question }}</label>
+        {% set selected_answer = user_answers.get(id_questions_list[loop.index0]) %}
+        <select name="answer{{ loop.index }}" id="answer{{ loop.index }}" required>
+          <option value="" disabled 
+          {% if not already_answered %}
+          selected
+          {% endif %}
+          >Pick an answer</option>
+
+          {% for value, label in [
+            (1, 'Agree'),
+            (2, 'Partially agree'),
+            (3, 'Neutral'),
+            (4, 'Partially disagree'),
+            (5, 'Disagree')
+          ] %}
+            <option value="{{ value }}"
+              {% if selected_answer == value %}
+                selected
+              {% endif %}
+            >{{ label }}</option>
+          {% endfor %}
+        </select>
+
+      </li>
+    {% endfor %}
+    <li class="submit-button-row">
+    <input type="submit" value="Submit">
+    </li>
+
+  {% endif %}
+
+</ol>
+</form>
+</div>
+{% endblock %}
+
+    

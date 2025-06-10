@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Game{% endblock %}
+
+{% block head %}
+<script src="{{ url_for('static', filename='game.js') }}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div id="gamePage">
+  <div id="gameFull">
+    <div id="gameDescription">Thank you for answering this survey. Play the wheel of fortune for a chance to win tokens!</div>
+    <div id="gameBox">
+      <div id="pointer"></div>
+        <ul id="wheel">
+          <li class="resultSection">Win</li>
+          <li class="resultSection">No prize</li>
+          <li class="resultSection">Spin again</li>
+          <li class="resultSection">No prize</li>
+        </ul>
+        <button id="spinButton">SPIN</button>
+    </div>
+    <div id="gameResult"></div>
+</div>
+  <!-- <div id="gamePic">vsdvsd</div> -->
+</div>
+{% endblock %}

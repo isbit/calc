@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Create new questionnaire{% endblock %}
+
+{% block content %}
+
+<div id="add-query-container">
+<h3>{{ name_questionnaire }}</h3>
+<form method="POST" id="add-query-form">
+  <ul id="query_list">
+    {% if num_questions %}
+      {% for i in range(num_questions) %}
+        <li>
+          <label for="lineQuestion{{i}}" class="input_description">{{i+1}}</label>
+          <input type="text" class="input_ramme" id="lineQuestion{{i + 1}}" name="lineQuestion{{i + 1}}" required>
+        </li>
+      {% endfor %}
+  </ul>
+  <div id="addQuestionButtons">
+    <input type="button" value="Add one more question" onclick="addQuestion()">
+    <input type="submit" value="Submit">
+  </div>    
+    {% endif %}
+</form>
+</div>
+{% endblock %}

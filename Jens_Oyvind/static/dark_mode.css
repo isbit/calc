@@ -1,0 +1,32 @@
+header {
+    background-color: #4a5568;
+}
+header a {
+    color: #b2dfdb;
+}
+body {
+    background-color: #2a2929;
+    color: #e4e3e3;
+}
+
+a {
+    color: white;
+}
+
+.completed-row {
+    color: rgb(61, 58, 58)
+}
+
+ol.answers-list > li:nth-child(odd) {
+  background-color: #4c4b4b;
+}
+
+ol.answers-list > li:nth-child(even) {
+  background-color: #302f2f;
+}
+
+.error,
+.success  {
+    color:rgb(0, 0, 0);
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.6);
+}

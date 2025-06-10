@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Questionnaires{% endblock %}
+
+{% block content %}
+<div id="index-content">
+<div id="questionnaires-container">
+{% if not logged_in_user %}
+<p>You must <a href=" {{ url_for('login') }}">log in</a> to view and answer questionnaires.</p>
+{% endif %}
+<div id="questionnaires" data-logged-in="{{ 'true' if logged_in_user else 'false' }}"></div>
+</div>
+<div id="index-img-container"><img src="/static/questionmark.png" alt="Logo with transparent background"></div>
+</div>
+{% endblock %}
